@@ -1,0 +1,14 @@
+[project]
+name = "example"
+version = "0.1.0"
+description = ""
+authors = []
+
+
+
+
+dependencies = [ "mediapipe" ]
+
+
+[project.scripts]
+main = "app:main"
