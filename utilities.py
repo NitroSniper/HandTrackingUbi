@@ -23,6 +23,7 @@ def draw_landmarks_on_image(rgb_image, detection_result):
 
     # Draw the hand landmarks.
     hand_landmarks_proto = landmark_pb2.NormalizedLandmarkList()
+    print(handedness[0].category_name, len(hand_landmarks))
     hand_landmarks_proto.landmark.extend([
       landmark_pb2.NormalizedLandmark(x=landmark.x, y=landmark.y, z=landmark.z) for landmark in hand_landmarks
     ])

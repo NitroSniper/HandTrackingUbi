@@ -4,7 +4,7 @@ import cv2
 import mediapipe as mp
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
-from utilities import draw_landmarks_on_image
+from ..utilities import draw_landmarks_on_image
 
 
 annotated_image = None
@@ -17,7 +17,7 @@ def print_result(result: vision.HandLandmarkerResult, output_image: mp.Image, ti
 def main():
     capture = cv2.VideoCapture(0)
 
-    base_options = mp.tasks.BaseOptions(model_asset_path='hand_landmarker.task')
+    base_options = mp.tasks.BaseOptions(model_asset_path='../RawImageRecognition/hand_landmarker.task')
     options = vision.HandLandmarkerOptions(
         base_options=base_options, num_hands=2, running_mode=vision.RunningMode.LIVE_STREAM,
         result_callback=print_result
