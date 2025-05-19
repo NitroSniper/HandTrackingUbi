@@ -1,6 +1,9 @@
 import cv2
 import numpy as np
 import mediapipe as mp
+import pickle
+from mediapipe import solutions
+from mediapipe.framework.formats import landmark_pb2
 #%%
 # configuration
 model_path = "neigh-model.pkl"  # path to the saved model
@@ -9,7 +12,6 @@ image_size   = (244, 244) # resize image
 # dominant_hand = "Right" # can be changed (but need to train the new model)
 #%%
 # Load knn model and labelEncoder
-import pickle
 with open(model_path, 'rb') as f:
     model, label = pickle.load(f)
 #%%
@@ -29,8 +31,6 @@ def process_raw_features(raw_features: mp.tasks.vision.HandLandmarkerResult):
         ]).flatten())
     return landmarks
 #%%
-from mediapipe import solutions
-from mediapipe.framework.formats import landmark_pb2
 
 
 MARGIN = 10  # pixels
@@ -46,16 +46,15 @@ def draw_landmarks_on_image(rgb_image, detection_result, label):
 
         # Draw the hand landmarks.
         hand_landmarks_proto = landmark_pb2.NormalizedLandmarkList()
-        print(handedness[0].category_name, len(hand_landmarks))
         hand_landmarks_proto.landmark.extend([
             landmark_pb2.NormalizedLandmark(x=landmark.x, y=landmark.y, z=landmark.z) for landmark in hand_landmarks
         ])
-        solutions.drawing_utils.draw_landmarks(
-            annotated_image,
-            hand_landmarks_proto,
-            solutions.hands.HAND_CONNECTIONS,
-            solutions.drawing_styles.get_default_hand_landmarks_style(),
-            solutions.drawing_styles.get_default_hand_connections_style())
+        # solutions.drawing_utils.draw_landmarks(
+        #     annotated_image,
+        #     hand_landmarks_proto,
+        #     solutions.hands.HAND_CONNECTIONS,
+        #     solutions.drawing_styles.get_default_hand_landmarks_style(),
+        #     solutions.drawing_styles.get_default_hand_connections_style())
 
         # Get the top left corner of the detected hand's bounding box.
         height, width, _ = annotated_image.shape
@@ -72,7 +71,7 @@ def draw_landmarks_on_image(rgb_image, detection_result, label):
     return annotated_image
 
 #%%
-def process_and_evaluate(raw_features: mp.tasks.vision.HandLandmarkerResult, output_image: mp.Image, ts):
+def process_and_evaluate(raw_features: mp.tasks.vision.HandLandmarkerResult, output_image: mp.Image):
     X = process_raw_features(raw_features)
     if len(X) == 0:
         return output_image.numpy_view()
@@ -80,7 +79,6 @@ def process_and_evaluate(raw_features: mp.tasks.vision.HandLandmarkerResult, out
     annotated_image = draw_landmarks_on_image(output_image.numpy_view(), raw_features, result)
     return annotated_image
 #%%
-import mediapipe as mp
 # load the trained model
 base_options = mp.tasks.BaseOptions(model_asset_path='hand_landmarker.task')
 options = mp.tasks.vision.HandLandmarkerOptions(
@@ -89,8 +87,6 @@ options = mp.tasks.vision.HandLandmarkerOptions(
 )
 
 #%%
-from time import perf_counter
-
 with mp.tasks.vision.HandLandmarker.create_from_options(options) as detector:
     capture = cv2.VideoCapture(0)
     while cv2.waitKey(100) != ord('q'):
@@ -99,8 +95,6 @@ with mp.tasks.vision.HandLandmarker.create_from_options(options) as detector:
         frame = cv2.flip(frame, 1)
         image = mp.Image(image_format=mp.ImageFormat.SRGB, data=frame)
         results = detector.detect(image)
-        output_image = process_and_evaluate(results, image, None)
+        output_image = process_and_evaluate(results, image)
 
         cv2.imshow("Picture", output_image)
-        # STEP 5: Process the classification result. In this case, visualize it.
-        # cv2.imshow("Output", frame)
