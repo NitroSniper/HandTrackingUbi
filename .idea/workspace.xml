@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="836d8f73-ba63-403e-9a61-c59dea88f9a2" name="Changes" comment="KNN Hand Sign Model">
+    <list default="true" id="836d8f73-ba63-403e-9a61-c59dea88f9a2" name="Changes" comment="KNN Hand Sign Model clean code">
+      <change afterPath="$PROJECT_DIR$/RawImageRecognition/k.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RawImageRecognition/asl_new_realTime.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/RawImageRecognition/asl_new_realTime.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RawImageRecognition/csv-to-model.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/RawImageRecognition/csv-to-model.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RawImageRecognition/process-image-mp.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/RawImageRecognition/process-image-mp.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RawImageRecognition/realtime-hand-sign.py" beforeDir="false" afterPath="$PROJECT_DIR$/RawImageRecognition/realtime-hand-sign.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RawImageRecognition/rt-knn-mp.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/RawImageRecognition/rt-knn-mp.ipynb" afterDir="false" />
     </list>
@@ -19,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jupyter Notebook" />
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -97,7 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1739236265684</updated>
       <workItem from="1747611149505" duration="14412000" />
-      <workItem from="1747672204990" duration="14720000" />
+      <workItem from="1747672204990" duration="21904000" />
     </task>
     <task id="LOCAL-00001" summary="Image tracking">
       <option name="closed" value="true" />
@@ -123,7 +124,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747684897395</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="KNN Hand Sign Model clean code">
+      <option name="closed" value="true" />
+      <created>1747687413302</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1747687413302</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,10 +142,11 @@
     <MESSAGE value="Image tracking" />
     <MESSAGE value="Primitive Image model by chaya" />
     <MESSAGE value="KNN Hand Sign Model" />
-    <option name="LAST_COMMIT_MESSAGE" value="KNN Hand Sign Model" />
+    <MESSAGE value="KNN Hand Sign Model clean code" />
+    <option name="LAST_COMMIT_MESSAGE" value="KNN Hand Sign Model clean code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/HandTrackingUbi$realtime_hand_sign.coverage" NAME="realtime-hand-sign Coverage Results" MODIFIED="1747687043362" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RawImageRecognition" />
+    <SUITE FILE_PATH="coverage/HandTrackingUbi$realtime_hand_sign.coverage" NAME="realtime-hand-sign Coverage Results" MODIFIED="1747704524995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RawImageRecognition" />
     <SUITE FILE_PATH="coverage/HandTrackingUbi$main.coverage" NAME="main Coverage Results" MODIFIED="1747615916657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TheoryCraft" />
     <SUITE FILE_PATH="coverage/HandTrackingUbi$test.coverage" NAME="test Coverage Results" MODIFIED="1747684526256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/RawImageRecognition" />
     <SUITE FILE_PATH="coverage/HandTrackingUbi$utilities.coverage" NAME="utilities Coverage Results" MODIFIED="1747615823509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TheoryCraft" />
